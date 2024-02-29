@@ -2,6 +2,7 @@
   "name": "nextjs-blog-template",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -14,11 +15,18 @@
     "next": "14.1.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@antfu/eslint-config": "^2.6.4",
+    "@iconify-json/solar": "^1.1.9",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@unocss/preset-icons": "^0.58.5",
     "eslint": "^8",
-    "eslint-config-next": "14.1.0"
+    "eslint-config-next": "14.1.0",
+    "eslint-flat-config-viewer": "^0.1.11",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint-plugin-unused-imports": "^3.1.0",
+    "typescript": "^5",
+    "unocss": "^0.58.5"
   }
 }
