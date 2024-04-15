@@ -1,3 +1,5 @@
+// noinspection NpmUsedModulesInstalled
+
 /*
  * nextPluginFlatConfig see -> https://github.com/vercel/next.js/discussions/49337
  */
@@ -6,7 +8,8 @@ import antfu from '@antfu/eslint-config'
 import nextPlugin from '@next/eslint-plugin-next'
 import reactPlugin from 'eslint-plugin-react'
 import hooksPlugin from 'eslint-plugin-react-hooks'
-import unusedImports from 'eslint-plugin-unused-imports'
+import tailwindPlugin from 'eslint-plugin-tailwindcss'
+import liferayPlugin from '@liferay/eslint-plugin'
 
 export default antfu(
   {
@@ -14,8 +17,6 @@ export default antfu(
     react: true,
     typescript: true,
     gitignore: true,
-    markdown: true,
-    jsonc: true,
   },
   {
     files: ['**/*.ts', '**/*.tsx'],
@@ -23,24 +24,21 @@ export default antfu(
       'react': reactPlugin,
       'react-hooks': hooksPlugin,
       '@next/next': nextPlugin,
+      'tailwindcss': tailwindPlugin,
+      '@liferay': liferayPlugin,
     },
     rules: {
       ...reactPlugin.configs['jsx-runtime'].rules,
+      ...reactPlugin.configs.recommended.rules,
       ...hooksPlugin.configs.recommended.rules,
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs['core-web-vitals'].rules,
+      ...tailwindPlugin.configs.recommended.rules,
       '@next/next/no-img-element': 'error',
       'react-refresh/only-export-components': 'off',
+      '@liferay/no-duplicate-class-names': 'warn',
+      '@liferay/trim-class-names': 'warn',
     },
   },
-  {
-    files: ['**/*.ts', '**/*.tsx'],
-    plugins: {
-      'unused-imports': unusedImports,
-    },
-    rules: {
-      'unused-imports/no-unused-imports': 'error',
-      'unused-imports/no-unused-vars': 'off',
-    },
-  },
+  // unocss(),
 )
