@@ -12,7 +12,6 @@ export default async function Home() {
         {posts.map((post, index) => {
           return (
             <BlogListItem key={post.slug} {...post} orderIdx={index} />
-
           )
         })}
 

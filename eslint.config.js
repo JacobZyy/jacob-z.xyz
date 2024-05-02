@@ -10,17 +10,7 @@ export default antfu(
     rules: {
       'unicorn/prefer-node-protocol': 'off',
       'style/arrow-parens': ['error', 'always'],
+      'react-refresh/only-export-components': 'off',
     },
   },
-  // {
-  //   files: ['**/*.ts', '**/*.tsx'],
-  //   plugins: {
-  //     '@next/next': nextPlugin,
-  //   },
-  //   rules: {
-  //     // ...nextPlugin.configs.recommended.rules,
-  //     // ...nextPlugin.configs['core-web-vitals'].rules,
-  //     // '@next/next/no-img-element': 'error',
-  //   },
-  // },
 )

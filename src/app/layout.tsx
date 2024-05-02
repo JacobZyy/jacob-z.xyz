@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import React from 'react'
 import type { Metadata, Viewport } from 'next'
 import Layout from '@/components/layout'
