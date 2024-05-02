@@ -1,16 +1,30 @@
 import dayjs from 'dayjs'
+import type { CSSProperties } from 'react'
+import Link from 'next/link'
 import type { BlogListItemType } from '@/utils'
 
-export default function BlogListItem(props: BlogListItemType) {
-  const { title, date, readingTime } = props
+import './index.css'
+
+type BlogListItemProps = {
+  orderIdx: number
+} & BlogListItemType
+
+export default function BlogListItem(props: BlogListItemProps) {
+  const { title, date, slug, readingTime, orderIdx } = props
+  const styles: CSSProperties = {
+    animationDelay: `${orderIdx * 0.05}s`,
+  }
   const shownDate = dayjs(date).format('MMM DD')
   return (
-    <div className="item block font-normal mb-6 mt-2 no-underline">
 
-      <h3>{title}</h3>
+    <div className="opacity-0 animate-fade-in" style={styles}>
+      <Link className="blog-list-item" href={`/${slug}`}>
+        <h2 className="font-bold text-xl">{title}</h2>
+        <div className="text-sm opacity-50 shrink-0">
+          {`${shownDate} · ${readingTime}`}
+        </div>
 
-      <div>{shownDate}</div>
-      <div>{readingTime}</div>
+      </Link>
     </div>
   )
 }

@@ -13,5 +13,6 @@ export const spaceMono = Space_Mono({
 
 export const pacifico = Pacifico({
   subsets: ['latin'],
+  variable: '--font-pacifico',
   weight: '400',
 })

@@ -1,22 +1,26 @@
-import type { Metadata } from 'next'
-import './globals.css'
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react'
+import type { Metadata, Viewport } from 'next'
 import Layout from '@/components/layout'
+import './globals.css'
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const metadata: Metadata = {
   title: 'Jacob-Z',
 }
+
+export const viewport: Viewport = {
+  themeColor: 'black',
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="w-full h-full">
-      <Layout>
-        {children}
-      </Layout>
-    </html>
+    <Layout>
+      {children}
+    </Layout>
+
   )
 }

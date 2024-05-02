@@ -1,14 +1,7 @@
-'use client'
-import type { Dispatch, SetStateAction } from 'react'
 import React from 'react'
 import Link from 'next/link'
 import classNames from 'classnames'
-import { pacifico } from '@/assets/fonts'
-
-interface HeaderProps {
-  currentTheme: 'retro' | 'coffee'
-  setCurrentTheme: Dispatch<SetStateAction<'retro' | 'coffee'>>
-}
+import { ThemeTrigger } from './ThemeTrigger'
 
 interface HeaderListType {
   title: string
@@ -32,22 +25,14 @@ const headerIcons: HeaderIconsType[] = [
   },
 ]
 
-const Header: React.FC<HeaderProps> = ({ currentTheme, setCurrentTheme }) => {
-  const handleChangeTheme = () => {
-    setCurrentTheme((prev) => {
-      return prev === 'coffee' ? 'retro' : 'coffee'
-    })
-  }
-
-  // const themeIcon = currentTheme === 'coffee' ? 'icon-[lucide--moon]' :
-
+export default function Header() {
   return (
     <div
       className="flex h-14 w-full max-w-3xl items-center justify-between font-bold"
     >
-      <div className={classNames(pacifico.className)}>
+      <div className="font-pacifico">
         <Link
-          className="bg-gradient-to-r from-black to-black bg-[length:0%_2px] bg-left-bottom bg-no-repeat text-4xl transition-all hover:bg-[length:100%_2px]"
+          className="bg-gradient-to-r from-base-content bg-[length:0%_2px] bg-left-bottom bg-no-repeat text-4xl transition-all hover:bg-[length:100%_2px] to-base-content"
           href="/"
         >
           Jacob
@@ -66,19 +51,9 @@ const Header: React.FC<HeaderProps> = ({ currentTheme, setCurrentTheme }) => {
             <span className={classNames(icon, 'w-6 h-6')}></span>
           </Link>
         ))}
-        {/* <div className={classNames(themeIcon, 'w-6 cursor-pointer h-6')} onClick={handleChangeTheme} /> */}
-        <label className="swap swap-rotate">
-          {/* this hidden checkbox controls the state */}
-          <input type="checkbox" checked={currentTheme === 'retro'} onChange={handleChangeTheme} />
-          {/* sun icon */}
-          <span className="swap-off fill-current w-6 h-6 icon-[lucide--sun]" />
-          {/* moon icon */}
-          <span className="swap-on fill-current w-6 h-6 icon-[lucide--moon]" />
-        </label>
+        <ThemeTrigger />
       </div>
     </div>
 
   )
 }
-
-export default Header

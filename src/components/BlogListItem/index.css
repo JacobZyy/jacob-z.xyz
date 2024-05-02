@@ -1,0 +1,3 @@
+.blog-list-item {
+    @apply flex font-normal mb-6 mt-2 no-underline items-center opacity-60 hover:opacity-100 gap-2
+}

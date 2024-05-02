@@ -6,10 +6,10 @@ export default antfu(
   {
     typescript: true,
     gitignore: true,
-    unocss: true,
     react: true,
     rules: {
       'unicorn/prefer-node-protocol': 'off',
+      'style/arrow-parens': ['error', 'always'],
     },
   },
   // {
