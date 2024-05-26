@@ -1,0 +1,16 @@
+.semi {
+  &-navigation {
+    :is(&-horizontal) &-header-list-outer {
+      @apply flex-1;
+    }
+    &-horizontal &-list {
+      @apply w-full flex justify-end flex-row;
+      &-wrapper {
+        @apply flex-1;
+      }
+    }
+    &-item-text {
+      @apply font-bold transition-colors;
+    }
+  }
+}

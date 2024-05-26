@@ -7,7 +7,7 @@ export default async function Home() {
   const posts = await getPosts()
   return (
     <div>
-      <ul>
+      <ul className="px-10">
         <div className="w-full h-8 pt-16 pointer-events-none select-none box-content" />
         {posts.map((post, index) => {
           return (

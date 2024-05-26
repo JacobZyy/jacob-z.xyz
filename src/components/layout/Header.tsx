@@ -1,7 +1,9 @@
+'use client'
 import React from 'react'
+import { Nav } from '@douyinfe/semi-ui'
 import Link from 'next/link'
 import classNames from 'classnames'
-import { ThemeTrigger } from './ThemeTrigger'
+import { Logo } from '@/components'
 
 interface HeaderListType {
   title: string
@@ -27,33 +29,34 @@ const headerIcons: HeaderIconsType[] = [
 
 export default function Header() {
   return (
-    <div
-      className="flex h-14 w-full max-w-3xl items-center justify-between font-bold"
+    <Nav
+      mode="horizontal"
+      header={{
+        logo: (
+          <Logo />
+        ),
+      }}
+      footer={(
+        <div className="flex flex-col items-center">
+          {headerIcons.map(({ icon, href }) => {
+            return (
+              <Link key={`${icon}-${href}`} href={href} className="leading-none">
+                <div className={classNames(icon, 'text-xl')} />
+              </Link>
+            )
+          })}
+        </div>
+      )}
+      className="h-16 w-full"
     >
-      <div className="font-pacifico">
-        <Link
-          className="bg-gradient-to-r from-base-content bg-[length:0%_2px] bg-left-bottom bg-no-repeat text-4xl transition-all hover:bg-[length:100%_2px] to-base-content"
-          href="/"
-        >
-          Jacob
-        </Link>
-      </div>
-      <div className="flex h-full gap-1 p-4 text-base">
-        {headerList.map(({ title, path }) => {
-          return (
-            <div className="text-center" key={path}>
-              <Link href={path}>{title}</Link>
-            </div>
-          )
-        })}
-        {headerIcons.map(({ icon, href }) => (
-          <Link key={href} href={href} target="_blank">
-            <span className={classNames(icon, 'w-6 h-6')}></span>
+      {headerList.map(({ title, path }) => {
+        return (
+          <Link key={path} href={path}>
+            <Nav.Item itemKey={title} text={title} />
           </Link>
-        ))}
-        <ThemeTrigger />
-      </div>
-    </div>
+        )
+      })}
+    </Nav>
 
   )
 }

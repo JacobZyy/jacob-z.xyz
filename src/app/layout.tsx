@@ -2,6 +2,7 @@ import React from 'react'
 import type { Metadata, Viewport } from 'next'
 import Layout from '@/components/layout'
 import './globals.css'
+import './semi-overwrite.scss'
 
 export const metadata: Metadata = {
   title: 'Jacob-Z',
