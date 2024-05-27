@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build:only": "next build",
+    "build": "rm -rf node_modules & ni & next build",
     "start": "next start",
     "lint": "eslint --fix",
     "lint:viewer": "npx @eslint/config-inspector"
@@ -26,7 +27,7 @@
     "reading-time": "^1.5.0",
     "rehype-pretty-code": "^0.13.2",
     "remark-smartypants": "^3.0.1",
-    "tsx": "^4.11.0"
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.18.1",

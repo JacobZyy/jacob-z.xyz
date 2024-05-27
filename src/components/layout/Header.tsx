@@ -33,7 +33,9 @@ export default function Header() {
       mode="horizontal"
       header={{
         logo: (
-          <Logo />
+          <Link href="/">
+            <Logo />
+          </Link>
         ),
       }}
       footer={(

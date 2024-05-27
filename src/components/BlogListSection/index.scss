@@ -1,0 +1,7 @@
+.year-title {
+  @apply font-pacifico text-9xl select-none pointer-events-none absolute -top-8 -left-4;
+  color: transparent;
+  line-height: 200px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--semi-color-fill-2);
+}

@@ -18,7 +18,7 @@ export default async function BlogListItem(props: BlogListItemProps) {
   const shownDate = dayjs(date).format('MMM DD')
   return (
     <div className="opacity-0 animate-fade-in" style={styles}>
-      <Link className="blog-list-item" href={`/${slug}/`}>
+      <Link className="blog-list-item" href={`/posts/${slug}`}>
         <h2 className="font-bold text-xl">{title}</h2>
         <div className="text-sm opacity-50 shrink-0">
           {`${shownDate} · ${readingTime}`}

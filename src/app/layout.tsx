@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Metadata, Viewport } from 'next'
-import Layout from '@/components/layout'
+import { Layout } from '@/components'
 import './globals.css'
 import './semi-overwrite.scss'
 

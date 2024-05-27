@@ -11,7 +11,9 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
       <body className={classNames(ibmPlexMono.variable, jbMono.variable, pacifico.variable)} theme-mode="dark">
         <div className="flex flex-col items-center">
           <Header />
-          <main className="max-w-3xl">{children}</main>
+          <div className="w-full flex flex-col items-center px-7 py-10">
+            <main className="max-w-3xl">{children}</main>
+          </div>
         </div>
       </body>
     </html>
