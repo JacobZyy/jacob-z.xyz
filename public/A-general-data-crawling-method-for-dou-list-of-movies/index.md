@@ -2,25 +2,26 @@
 title: '一种通用的豆瓣片单数据爬虫方式'
 date: '2024-2-22'
 ---
+
 # 一种通用的豆瓣片单数据爬虫方式
 
 ## 前言
 
 我是前端切图仔，女朋友是统计学专业的，毕业课题是电影票房和网络口碑相关的研究，需要电影票房及评分数据。我找了一下github上相关的数据爬虫仓库，大多以python爬虫为主，或是年代久远接口失效，难以达到要求，且本人py水平仅为helloworld级的，因此选择使用ts-node重新造个爬虫轮子
 
-## 技术选型
+## 技术选型 #121b38
 
 ### 数据获取：x-crawl
 
-* **简介:** 一个灵活的 Node.js 多功能爬虫库。灵活的使用方式和众多的功能可以帮助您快速、安全、稳定地爬取页面、接口以及文件。
-* **文档：** [x-crawl](https://github.com/coder-hxl/x-crawl/blob/main/docs/cn.md)
-* **选择理由:** 相较于原生的fetch或者axios等直接请求方案而言，更具有爬虫扩展性而言，后续拓展时遭遇反爬策略等也能更好处理一点，防止重复造轮子
+- **简介:** 一个灵活的 Node.js 多功能爬虫库。灵活的使用方式和众多的功能可以帮助您快速、安全、稳定地爬取页面、接口以及文件。
+- **文档：** [x-crawl](https://github.com/coder-hxl/x-crawl/blob/main/docs/cn.md)
+- **选择理由:** 相较于原生的fetch或者axios等直接请求方案而言，更具有爬虫扩展性而言，后续拓展时遭遇反爬策略等也能更好处理一点，防止重复造轮子
 
 ### 页面HTML处理：cherrio
 
-* **简介：**一个为服务端定制的，快速、灵活、实施的jQuery核心实现
-* **文档：**[cheerio](https://github.com/cheeriojs/cheerio/wiki/Chinese-README)
-* **选择理由：**能够以JQ的方式处理x-crawl爬取的页面HTML文档，符合前端操作习惯
+- **简介：**一个为服务端定制的，快速、灵活、实施的jQuery核心实现
+- **文档：**[cheerio](https://github.com/cheeriojs/cheerio/wiki/Chinese-README)
+- **选择理由：**能够以JQ的方式处理x-crawl爬取的页面HTML文档，符合前端操作习惯
 
 ## 爬取方式详解
 
@@ -235,7 +236,7 @@ export default DouListSpider
 ```ts
 class DouListSpider {
   public writeData = (fileName: string = '') => {
-    const csvData = this.dataList.map(item => `${item.orderId},${item.movieCode},${item.movieName},${item.rateValue},${item.ratePersonCount},"${item.description}",${item.boxOffice}`)
+    const csvData = this.dataList.map((item) => `${item.orderId},${item.movieCode},${item.movieName},${item.rateValue},${item.ratePersonCount},"${item.description}",${item.boxOffice}`)
     const csvString = `orderId,shouldCurId,movieName,rateValue(x/10),ratePersonCount(评价人数),description,boxOffice(票房，万美元)\n${csvData.join(
         '\n',
       )}`
@@ -255,11 +256,11 @@ export default DouListSpider
 
 例如
 
-* **影评：** `https://movie.douban.com/subject/${movieCode}/reviews`
+- **影评：** `https://movie.douban.com/subject/${movieCode}/reviews`
 
-* **短评：** `https://movie.douban.com/subject/${movieCode}/comments`
+- **短评：** `https://movie.douban.com/subject/${movieCode}/comments`
 
-* **获奖：** `https://movie.douban.com/subject/${movieCode}/awards`
+- **获奖：** `https://movie.douban.com/subject/${movieCode}/awards`
 
   ...
 

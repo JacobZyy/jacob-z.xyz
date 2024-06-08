@@ -5,6 +5,7 @@ export default antfu({
   react: true,
   typescript: true,
   gitignore: true,
+  ignores: ['scripts/**/*.*'],
 }).append({
   rules: {
     'unicorn/prefer-node-protocol': 'off',

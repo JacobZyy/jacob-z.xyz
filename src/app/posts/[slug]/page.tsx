@@ -5,6 +5,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkSmartpants from 'remark-smartypants'
 import rehypePrettyCode from 'rehype-pretty-code'
 import overnight from 'overnight/themes/Overnight-Slumber.json'
+import rehypeColorChips from 'rehype-color-chips'
 import { remarkAdjustImagePaths } from '@/utils'
 
 import './index.css'
@@ -61,6 +62,7 @@ async function BlogDetail({ params: { slug } }: BlogDetailProps) {
                   theme: overnight,
                 },
               ],
+              [rehypeColorChips],
             ],
           },
         }}

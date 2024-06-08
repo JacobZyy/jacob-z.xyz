@@ -1,7 +1,6 @@
 import { readFile, readdir } from 'fs/promises'
 import matter from 'gray-matter'
 import readingTime from 'reading-time'
-import { dir } from '@iconify/json'
 import dayjs from 'dayjs'
 
 export interface BlogListItemType {
@@ -22,7 +21,7 @@ export async function getPosts(): Promise<Map<string, BlogListItemType[]>> {
   const blogsMap = new Map<string, BlogListItemType[]>()
 
   for (let idx = 0; idx < fileContents.length; idx++) {
-    const slug = dir[idx]
+    const slug = dirs[idx]
     const fileContent = fileContents[idx]
     const { data } = matter(fileContent)
     const matterInfo = data as Omit<BlogListItemType, 'readingTime' | 'slug'>
