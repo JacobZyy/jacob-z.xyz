@@ -8,7 +8,7 @@
     "dev": "next dev",
     "build:only": "next build",
     "build": "rm -rf node_modules & ni & next build",
-    "start": "PORT=8086 next start",
+    "start": "PORT=443 next start",
     "tsx-watch": "tsx --watch scripts",
     "lint": "eslint --fix",
     "lint:viewer": "npx @eslint/config-inspector"
